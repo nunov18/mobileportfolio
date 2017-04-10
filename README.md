@@ -32,7 +32,7 @@ CSS
 Optimizing:
 Remove Google Web font.
 Place CSS inline and minified on index.html.
-Added a media query <link href="css/print.css" rel="stylesheet" media="print">
+Added a media query media="print".
 
 Result - Final Mesuring:
 -----------------------
