@@ -510,7 +510,6 @@ function updatePositions() {
   var phase;
   for (var i = 0; i < items.length; i++) {
     phase = Math.sin(st + (i % 5));
-    //console.log(phase, st)
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
