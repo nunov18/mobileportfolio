@@ -4,17 +4,14 @@
 
 ------------------------------------------------------------
 
-Profiling - Optimizing - Measure - Lather - Rinse - Repeat
+Profiling
 -----------------------------------------------------------
-Profiling:
+
 Used Google PageSpeed Insights at https://developers.google.com/speed/pagespeed/ and checked the speed of the desktop and mobile version.
-
-Measuring:
-Score for mobile version was 28/100 and for desktop version 30/100.
-
 
 Images
 ----------
+
 Optimizing:
 Google PageSpeed suggests to optimize the images:
 
@@ -34,15 +31,13 @@ CSS
 
 Optimizing:
 Remove Google Web font.
-Place CSS inline on index.html.
+Place CSS inline and minified on index.html.
 Added a media query <link href="css/print.css" rel="stylesheet" media="print">
 
-Hosting & Browser Cache
+Result - Final Mesuring:
 -----------------------
-Since I host the site on github as github pages, it is not possible to include cache to the browser.  
 
-Result:
-The Google PageSpeed Insight Score for the mobile version of index.html changed to 94/100 and desktop version to 95/100.
+The Google PageSpeed Insight Score for the mobile version of index.html changed to 94/100 and desktop version to 95/100. Hosted the site on github as github pages. Unable to include cache to the browser due to github restrictions.
 
 #### Part 2: Optimize Frames per Second in pizza.html
 
