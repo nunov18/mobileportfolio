@@ -531,13 +531,21 @@ function updatePositions() {
     frame++;
     window.performance.mark("mark_start_frame");
 
-    var items = document.getElementsByClassName('mover');
+    var items = document.getElementsByClassName("mover"),
+    itemsLength = items.length;
     var st = document.body.scrollTop / 1250;
-    var phase;
-    for (var i = 0; i < items.length; i++) {
-        phase = Math.sin(st + (i % 5));
-        items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+
+    var phases = [],
+    maxPos = 5,
+    i;
+
+    for (i = 0; i < maxPos; i++) {
+        phases.push(Math.sin(st + (i % maxPos)) * 100);
     }
+
+    for (i = 0; i < itemsLength; i++) {
+    items[i].style.left = items[i].basicLeft + phases[i % 5] + 'px';
+  }
 
     // User Timing API to the rescue again. Seriously, it's worth learning.
     // Super easy to create custom metrics.
@@ -554,25 +562,17 @@ window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
-    var viewWidth = window.screen.width;
-    var screenHeight = window.screen.height;
-    var cols = Math.round(viewWidth / 200) + 2;
-    var rows = Math.round(screenHeight / 200);
-    var totalPizzas = cols * rows;
-    var s = 256;
-    var elem;
-    //Added createDocumentFragment to create a imaginary node to append its values to the pizza.html.
-    var myFragment = document.createDocumentFragment();
-    for (var i = 0; i < totalPizzas; i++) {
-        elem = document.createElement('img');
+  var cols = 8;
+  var s = 256;
+    for (var i = 0; i < 200; i++) {
+        var elem = document.createElement('img');
         elem.className = 'mover';
         elem.src = "images/pizza.png";
         elem.style.height = "100px";
         elem.style.width = "73.333px";
         elem.basicLeft = (i % cols) * s;
         elem.style.top = (Math.floor(i / cols) * s) + 'px';
-        myFragment.appendChild(elem);
+        document.getElementById("movingPizzas1").appendChild(elem);
     }
-    document.getElementById("movingPizzas1").appendChild(myFragment);
     updatePositions();
 });
